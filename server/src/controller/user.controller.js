@@ -1,5 +1,5 @@
 const express = require('express')
-const { getAllUsers, createUser, updateUser } = require('../service/user.service')
+const { getAllUsers, createUser, updateUser, authorizationUser, deleteUser } = require('../service/user.service')
 
 const route = express.Router();
 
@@ -35,10 +35,22 @@ route.put('/:id', async (req, res) => {
     }
 
 })
+route.delete('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const data = await deleteUser(id);
+        res.send(data)
+    } catch (error) {
+        res.send(error.message)
+    }
+
+})
 
 route.post('/auth', async (req, res) => {
     try {
-
+        const { email, password } = req.body;
+        const data = await authorizationUser(email, password);
+        res.send(data);
     } catch (error) {
         res.send(error.message)
     }

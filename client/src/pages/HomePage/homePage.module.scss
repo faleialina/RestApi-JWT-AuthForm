@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+ 
+   
+
+    .img {
+        background-image: url(./assets/Group.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 800px;
+        height: 220px;
+    }
+
+    h1 {
+        color: #000;
+        font: 700 20px Inter;
+    }
+
+    p {
+        color: #000;
+        font: 400 10px Inter;
+    }
+}

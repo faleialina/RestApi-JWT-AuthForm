@@ -1,14 +1,18 @@
 .wrapper {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
     .info {
         display: flex;
         flex-direction: column;
+        margin-top: 100px;
+        margin-bottom: 40px;
 
         h1 {
             color: #12141A;
             font: 500 23px Inter;
+            margin-bottom: 10px;
         }
 
         p {
@@ -20,6 +24,7 @@
     .log {
         display: flex;
         flex-direction: column;
+        gap: 20px;
 
         p {
             color: #606778;
@@ -35,6 +40,8 @@
             border: 1px solid #CAD0DB;
             color: #7B8499;
             font: 500 14px Inter;
+            margin-top: 32px;
+            margin-bottom: 12px;
         }
     }
 

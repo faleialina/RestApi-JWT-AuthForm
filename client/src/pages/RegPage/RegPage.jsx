@@ -2,10 +2,11 @@ import Header from "../../components/Heder/Header";
 import style from './regPage.module.scss'
 import { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 function RegPage() {
-    const [inp, setInp] = useState({name:'', surname:'', email:'', password:''});
-    
+    const [inp, setInp] = useState({ name: '', surname: '', email: '', password: '' });
+    const navigate = useNavigate();
 
     function changeInput(event) {
         setInp({ ...inp, [event.target.name]: event.target.value })
@@ -15,6 +16,7 @@ function RegPage() {
         const result = await axios.post('http://localhost:3001/user', inp);
         console.log(result.data);
         console.log(inp);
+        navigate('/')
     }
 
     return (

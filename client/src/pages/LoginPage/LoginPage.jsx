@@ -2,19 +2,19 @@ import Header from "../../components/Heder/Header";
 import style from "./loginPage.module.scss";
 import { useState } from "react";
 import axios from "axios"
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function LoginPage() {
-    const [inp, setInp] = useState({ email:'', password:''});
+    const [inp, setInp] = useState({ email: '', password: '' });
     const navigate = useNavigate();
-    
+
 
     function changeInput(event) {
         setInp({ ...inp, [event.target.name]: event.target.value })
     }
 
     async function authResult() {
-        const result = await axios.post('http://localhost:3001/user/auth', inp, {withCredentials:true});
+        const result = await axios.post('http://localhost:3001/user/auth', inp, { withCredentials: true });
         console.log(result.data);
         console.log(inp);
         navigate('/home')
@@ -37,7 +37,7 @@ function LoginPage() {
                         <input name="password" onChange={changeInput} placeholder="Must be at least 8 characters." />
                     </div>
                 </div>
-                <button  onClick={authResult}>Continue</button>
+                <button onClick={authResult}>Continue</button>
                 <p className={style.sing}>Not registered yet? Sign Up</p>
             </div>
         </div>

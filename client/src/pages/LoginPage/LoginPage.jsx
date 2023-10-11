@@ -1,11 +1,15 @@
 import Header from "../../components/Heder/Header";
 import style from "./loginPage.module.scss";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import MyContext from "../../context/context";
+
 
 function LoginPage() {
+    
     const [inp, setInp] = useState({ email: '', password: '' });
+    const contextGlobaldata = useContext(MyContext);
     const navigate = useNavigate();
 
 
@@ -17,6 +21,7 @@ function LoginPage() {
         const result = await axios.post('http://localhost:3001/user/auth', inp, { withCredentials: true });
         console.log(result.data);
         console.log(inp);
+        contextGlobaldata.login()
         navigate('/home')
     }
     return (
